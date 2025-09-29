@@ -1,0 +1,44 @@
+{
+  "images" : [
+    {
+      "filename" : "logo-cbbc12.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "app-logo-dark 1.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "app-logo-light.png",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "logo-cbbc12@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x",
+      "unassigned" : true
+    },
+    {
+      "filename" : "logo-cbbc12@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x",
+      "unassigned" : true
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
