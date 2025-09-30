@@ -8,9 +8,9 @@ import {
   View,
   StatusBar,
   Linking,
-  SafeAreaView,
   Platform,
 } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useAppOpenAd, TestIds } from 'react-native-google-mobile-ads';
 import { hasNotch } from 'react-native-device-info';
 import { useDispatch, useSelector } from 'react-redux';
@@ -204,8 +204,8 @@ const GuestSearchView: React.FC<GuestSearchViewProps> = ({ navigation }) => {
   };
 
   useEffect(() => {
-    Linking.addEventListener('url', handleOpenURL);
-    return () => Linking.removeEventListener('url', handleOpenURL);
+    // Linking.addEventListener('url', handleOpenURL);
+    // return () => Linking.removeEventListener('url', handleOpenURL);
   }, []);
 
   const loadData = async () => {
@@ -274,29 +274,33 @@ const GuestSearchView: React.FC<GuestSearchViewProps> = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: setting.appColor }}>
-      <StatusBar
-        barStyle={`${setting.isDarkMode ? 'light' : 'dark'}-content`}
-        backgroundColor={setting.appColor}
-      />
-      <HeaderView
-        title={t('placeholder.appName')}
-        titleFontSize={33}
-        isIcon
-        iconName="log-in-outline"
-        navigation={navigation}
-      />
-      <View
-        style={{
-          height: hp(isIpad() ? 3 : isAndroid() ? 6.3 : 5.3),
-          marginRight: 15,
-        }}
-      >
-        {renderSearchMenu()}
-      </View>
-      <View style={{ flex: 1, padding: 10 }}>{renderContent()}</View>
-      <AppBannerAd />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1, backgroundColor: setting.appColor }}>
+        <StatusBar
+          barStyle={`${setting.isDarkMode ? 'light' : 'dark'}-content`}
+          backgroundColor={setting.appColor}
+          translucent={false}
+        />
+
+        <HeaderView
+          title={t('placeholder.appName')}
+          titleFontSize={33}
+          isIcon
+          iconName="log-in-outline"
+          navigation={navigation}
+        />
+        <View
+          style={{
+            height: hp(isIpad() ? 3 : isAndroid() ? 6.3 : 5.3),
+            marginRight: 15,
+          }}
+        >
+          {renderSearchMenu()}
+        </View>
+        <View style={{ flex: 1, padding: 10 }}>{renderContent()}</View>
+        <AppBannerAd />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
