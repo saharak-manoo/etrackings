@@ -203,10 +203,15 @@ const GuestSearchView: React.FC<GuestSearchViewProps> = ({ navigation }) => {
     }
   };
 
-  useEffect(() => {
-    // Linking.addEventListener('url', handleOpenURL);
-    // return () => Linking.removeEventListener('url', handleOpenURL);
-  }, []);
+  // useEffect(() => {
+  //   console.log('Adding listener');
+  //   const subscription = Linking.addListener('url', handleOpenURL);
+
+  //   return () => {
+  //     console.log('Removing listener');
+  //     subscription.remove();
+  //   };
+  // }, []);
 
   const loadData = async () => {
     Linking.removeAllListeners('url');

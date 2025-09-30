@@ -313,15 +313,23 @@ function Navigation() {
 
   const loadCouriers = async () => {
     try {
+      console.log('courier -> ');
       let resp = await Api.courier();
+      console.log('resp -> ', resp);
 
-      if (resp.meta.code === 200) {
+      if (
+        resp &&
+        typeof resp === 'object' &&
+        'meta' in resp &&
+        resp.meta.code === 200
+      ) {
         let couriers = resp?.data as Courier[];
         dispatch(setCouriers(couriers));
       } else {
         errorMessage('ETrackings', i18next.t('message.somethingWentWrong'));
       }
-    } catch {
+    } catch (err) {
+      console.log('err load courier -> ', err);
       errorMessage('ETrackings', t('message.somethingWentWrong'));
     }
   };
@@ -360,7 +368,7 @@ function Navigation() {
           initialParams={{ isAgree: false }}
         />
         <RootStack.Screen name="Login" component={LoginView} />
-        <RootStack.Screen name="Register" component={RegisterView} />
+        {/* <RootStack.Screen name="Register" component={RegisterView} />
         <RootStack.Screen
           name="ForgotPassword"
           component={ForgotPasswordView}
@@ -368,7 +376,7 @@ function Navigation() {
         <RootStack.Screen
           name="ReConfirmEmail"
           component={ReConfirmEmailView}
-        />
+        /> */}
 
         <RootStack.Screen name="Home" component={TabNavigation} />
         {/* <RootStack.Screen name="Profile" component={ProfileView} />

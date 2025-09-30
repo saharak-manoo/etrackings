@@ -1,22 +1,29 @@
-// image
-export const LOGO_DARK_URL = 'https://fast.etrackings.com/app-logo-dark.png';
-export const LOGO_LIGHT_URL = 'https://fast.etrackings.com/app-logo-light.png';
-export const NO_WIFI_URL = 'https://fast.etrackings.com/no-wifi.png';
-export const REMOVE_ADS_URL = 'https://fast.etrackings.com/remove-ads.png';
-export const LOGIN_PAGE_URL = 'https://fast.etrackings.com/login.png';
-export const SERVER_ERROR_URL = 'https://fast.etrackings.com/server-error.png';
-export const SYSTEM_MAINTENANCE_URL =
+// URLs as string constants
+export const LOGO_DARK_URL: string =
+  'https://fast.etrackings.com/app-logo-dark.png';
+export const LOGO_LIGHT_URL: string =
+  'https://fast.etrackings.com/app-logo-light.png';
+export const NO_WIFI_URL: string = 'https://fast.etrackings.com/no-wifi.png';
+export const REMOVE_ADS_URL: string =
+  'https://fast.etrackings.com/remove-ads.png';
+export const LOGIN_PAGE_URL: string = 'https://fast.etrackings.com/login.png';
+export const SERVER_ERROR_URL: string =
+  'https://fast.etrackings.com/server-error.png';
+export const SYSTEM_MAINTENANCE_URL: string =
   'https://fast.etrackings.com/system-maintenance.png';
-export const APP_UPDATE_URL = 'https://fast.etrackings.com/update.png';
-export const SEARCH_NOT_FOUND_URL =
+export const APP_UPDATE_URL: string = 'https://fast.etrackings.com/update.png';
+export const SEARCH_NOT_FOUND_URL: string =
   'https://fast.etrackings.com/search-not-found.png';
-export const WAIT_PARCEL_URL = 'https://fast.etrackings.com/wait-parcel.png';
+export const WAIT_PARCEL_URL: string =
+  'https://fast.etrackings.com/wait-parcel.png';
 
-export const HTTP_STATUSES = [200, 201, 204, 400, 404];
+// HTTP status codes as number array
+export const HTTP_STATUSES: number[] = [200, 201, 204, 400, 404];
+
+// Host URLs
 export const HOST_PROD = 'https://api.etrackings.com';
-export const HOST_DEV = 'http://192.168.0.115:9100';
+export const HOST_DEV = 'http://172.20.10.2:9100';
 export const HOST_BACKUP = 'https://fast.etrackings.com';
-export const HOST = __DEV__ ? HOST_DEV : HOST_PROD;
 export const ALL = 'ALL';
 export const NOTE = 'NOTE';
 export const FAVORITES = 'FAVORITES';
@@ -104,7 +111,13 @@ export const HIDE_TRACKING_BUTTON = 'HIDE_TRACKING_BUTTON';
 export const SHOW_SWITCH_NOTIFICATION = 'SHOW_SWITCH_NOTIFICATION';
 export const AGREE_TERMS_AND_CONDITIONS = 'AGREE_TERMS_AND_CONDITIONS';
 export const AD_APP_OPEN_LAST_TIME = 'AD_APP_OPEN_LAST_TIME';
-export const ITEM_SKUS = [
+
+// Conditional host based on environment
+declare const __DEV__: boolean; // or import from react-native if available
+export const HOST: string = __DEV__ ? HOST_DEV : HOST_PROD;
+
+// Arrays with explicit type
+export const ITEM_SKUS: string[] = [
   'remove_ads_7d',
   'premium_7d',
   'remove_ads_1m',
@@ -116,5 +129,5 @@ export const ITEM_SKUS = [
   'remove_ads_1y',
   'premium_1y',
 ];
-export const ITEM_SKUS_FOR_ANDROID = ['no_ads', 'premium'];
-export const SKUS = ['no_ads', 'premium'];
+export const ITEM_SKUS_FOR_ANDROID: string[] = ['no_ads', 'premium'];
+export const SKUS: string[] = ['no_ads', 'premium'];
